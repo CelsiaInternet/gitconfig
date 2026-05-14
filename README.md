@@ -84,6 +84,9 @@ git config --global alias.tags "! git push -u origin --tags"
 git config --global alias.tago "! git ls-remote --tags origin"
 git config --global alias.tagdel "! git tag -d $1"
 git config --global alias.tagodel "! git push origin --delete $1"
+
+# Meta
+git config --global alias.aliases "! printf 'Vista:      l  s  v  b\nRamas:      new  set  del  rn  main  lb  lba  lbr  upstream  up  odel  orn  set-head\nPull:       get  getall  bring\nCommit:     prepare  initial  update  upd  backup  feat  review  fix  bug  deploy  down  rollback  merge\nReset:      rhs  rhh  clean  chout  ri  ric  fpush  dropc  dropf\nTags:       tag  tags  tago  tagdel  tagodel\n'"
 ```
 
 ## Setup de aliases — Windows CMD
@@ -154,6 +157,9 @@ git config --global alias.tags "! git push -u origin --tags"
 git config --global alias.tago "! git ls-remote --tags origin"
 git config --global alias.tagdel "! git tag -d $1"
 git config --global alias.tagodel "! git push origin --delete $1"
+
+REM Meta
+git config --global alias.aliases "! printf 'Vista:      l  s  v  b\nRamas:      new  set  del  rn  main  lb  lba  lbr  upstream  up  odel  orn  set-head\nPull:       get  getall  bring\nCommit:     prepare  initial  update  upd  backup  feat  review  fix  bug  deploy  down  rollback  merge\nReset:      rhs  rhh  clean  chout  ri  ric  fpush  dropc  dropf\nTags:       tag  tags  tago  tagdel  tagodel\n'"
 ```
 
 ---
@@ -212,17 +218,6 @@ git config --global alias.tagodel "! git push origin --delete $1"
 | `rollback` | `git rollback "<msg>"` | Commit rollback |
 | `merge`    | `git merge "<msg>"`    | Commit merge    |
 
-### Commit + Push — josephine
-
-| Alias     | Uso                  | Descripción        |
-| --------- | -------------------- | ------------------ |
-| `jbackup` | `git jbackup <rama>` | Backup a josephine |
-| `jreview` | `git jreview <rama>` | Review a josephine |
-| `jmerge`  | `git jmerge <rama>`  | Merge a josephine  |
-| `jdeploy` | `git jdeploy <rama>` | Deploy a josephine |
-| `jfix`    | `git jfix <rama>`    | Fix a josephine    |
-| `jbring`  | `git jbring <rama>`  | Pull de josephine  |
-
 ### Reset
 
 | Alias   | Uso                   | Descripción                                        |
@@ -246,6 +241,12 @@ git config --global alias.tagodel "! git push origin --delete $1"
 | `tago`    | `git tago`             | Listar tags origin |
 | `tagdel`  | `git tagdel <nombre>`  | Borrar tag local   |
 | `tagodel` | `git tagodel <nombre>` | Borrar tag origin  |
+
+### Meta
+
+| Alias     | Uso           | Descripción                           |
+| --------- | ------------- | ------------------------------------- |
+| `aliases` | `git aliases` | Lista todos los aliases por categoría |
 
 ---
 

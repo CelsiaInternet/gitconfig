@@ -64,9 +64,9 @@ git config --global alias.rollback '! rollback() { git add . && git commit -m "R
 git config --global alias.merge '! merge() { git add . && git commit -m "Merge:$1" && git push -u origin; }; merge'
 
 # Reset
-git config --global alias.rhs "git reset HEAD^ --soft"
-git config --global alias.rhh "git reset HEAD^ --hard"
-git config --global alias.clean "git rm -r --cached ."
+git config --global alias.rhs "! git reset HEAD^ --soft"
+git config --global alias.rhh "! git reset HEAD^ --hard"
+git config --global alias.clean "! git rm -r --cached ."
 git config --global alias.chout "! git checkout -- $1"
 
 # Rebase interactivo
@@ -137,9 +137,9 @@ git config --global alias.rollback "! rollback() { git add . && git commit -m \"
 git config --global alias.merge "! merge() { git add . && git commit -m \"Merge:$1\" && git push -u origin; }; merge"
 
 REM Reset
-git config --global alias.rhs "git reset HEAD^ --soft"
-git config --global alias.rhh "git reset HEAD^ --hard"
-git config --global alias.clean "git rm -r --cached ."
+git config --global alias.rhs "! git reset HEAD^ --soft"
+git config --global alias.rhh "! git reset HEAD^ --hard"
+git config --global alias.clean "! git rm -r --cached ."
 git config --global alias.chout "! git checkout -- $1"
 
 REM Rebase interactivo

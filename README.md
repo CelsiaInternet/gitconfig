@@ -86,7 +86,7 @@ git config --global alias.tagdel "! git tag -d $1"
 git config --global alias.tagodel "! git push origin --delete $1"
 
 # Meta
-git config --global alias.aliases "! printf 'Vista:      l  s  v  b\nRamas:      new  set  del  rn  main  lb  lba  lbr  upstream  up  odel  orn  set-head\nPull:       get  getall  bring\nCommit:     prepare  initial  update  upd  backup  feat  review  fix  bug  deploy  down  rollback  merge\nReset:      rhs  rhh  clean  chout  ri  ric  fpush  dropc  dropf\nTags:       tag  tags  tago  tagdel  tagodel\n'"
+/
 ```
 
 ## Setup de aliases — Windows CMD

@@ -6,14 +6,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a personal git configuration reference repository. `README.md` is a reference document — not a script — containing global git alias setup commands and workflow documentation for Cesar Galvis Leon (`cgalvisleon@gmail.com`).
 
-## Repository Contents
+**`README.md` is written in Spanish.** All alias descriptions, section headings, and comments in that file follow Spanish conventions.
+
+## Repository Structure
+
+`README.md` has two parallel setup blocks that must always be kept in sync:
+1. **macOS / Linux / Git Bash** — uses single-quoted shell functions.
+2. **Windows CMD** — uses double-quoted strings with escaped inner quotes (`\"`).
+
+When adding or modifying an alias, update **both** blocks and the reference table that follows each one.
 
 `README.md` covers:
-
-- **Global git aliases** set via `git config --global alias.<name> "..."` — two blocks: one for macOS/Linux/Git Bash (single quotes), one for Windows CMD (escaped double quotes).
+- **Global git aliases** set via `git config --global alias.<name> "..."`.
 - **Two remote targets**: `origin` (GitHub personal, host alias `github-cgalvisleon`) and `josephine` (Celsia/work, host alias `github-celsia`). Aliases prefixed with `j` target `josephine`.
 - **SSH multi-account config** for `~/.ssh/config` with separate `ed25519` key files per identity.
-- **Techniques**: merge/conflict resolution (`--theirs`/`--ours`), gitignore cache cleanup, sensitive-data removal (local rebase and `git-filter-repo`), history search, and remote URL changes.
+- **Techniques**: merge/conflict resolution, gitignore cache cleanup, sensitive-data removal, history search, and remote URL changes.
 
 ## Alias Reference
 
@@ -25,6 +32,7 @@ This is a personal git configuration reference repository. `README.md` is a refe
 | `git s` | Short status with branch |
 | `git v` | Latest tag (version) |
 | `git b` | Abbreviated version tag |
+| `git aliases` | Print all aliases grouped by category |
 
 ### Branch
 
@@ -111,9 +119,17 @@ All aliases below run `git add . && git commit -m "<Prefix>:$1" && git push -u o
 ### Merge & conflicts
 
 ```bash
-git merge -X theirs <branch>   # Accept all incoming changes
-git checkout --theirs .         # Accept origin changes (during conflict)
-git checkout --ours .           # Accept local changes (during conflict)
+git merge -X theirs <branch>       # Accept all incoming changes
+git checkout --theirs .             # Accept origin changes (during conflict)
+git checkout --ours .               # Accept local changes (during conflict)
+git checkout origin/<branch> -- <file>  # Restore a specific file from a branch
+```
+
+### Discard changes in a file
+
+```bash
+git checkout -- <file>
+git chout <file>                    # Same via alias
 ```
 
 ### Gitignore — remove already-tracked files
@@ -121,7 +137,22 @@ git checkout --ours .           # Accept local changes (during conflict)
 ```bash
 git ls-files -ci --exclude-standard   # See tracked-but-ignored files
 git rm --cached <file>
+git rm --cached -r <directory>
 git check-ignore -v <file>            # Show which rule matches
+```
+
+### Search commit history
+
+```bash
+git log --all --grep="text"
+git grep "text" $(git rev-list --all)
+```
+
+### Change remote URL
+
+```bash
+git remote set-url origin <new-url>
+git remote set-url origin git@github-cgalvisleon:<repo>.git
 ```
 
 ### Remove sensitive data
@@ -136,6 +167,8 @@ git check-ignore -v <file>            # Show which rule matches
 
 ```bash
 ssh-keygen -t ed25519 -C "user@email.com" -f ~/.ssh/<name>
+eval "$(ssh-agent -s)"
+ssh -T git@github-personal          # Test the connection
 ```
 
 `~/.ssh/config` pattern:
